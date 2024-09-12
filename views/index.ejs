@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PAA Scraper</title>
+</head>
+<body>
+  <h1>Google People Also Asked (PAA) Scraper</h1>
+  <form action="/scrape" method="POST">
+    <div>
+      <label for="searchTerm">Search Term:</label>
+      <input type="text" id="searchTerm" name="searchTerm" required>
+    </div>
+    <div>
+      <label for="country">Country:</label>
+      <select id="country" name="country" required>
+        <option value="en">United States (en)</option>
+        <option value="fr">France (fr)</option>
+        <option value="de">Germany (de)</option>
+        <!-- Add more country options as needed -->
+      </select>
+    </div>
+    <button type="submit">Fetch PAA Data</button>
+  </form>
+</body>
+</html>

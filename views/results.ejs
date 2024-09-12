@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PAA Results</title>
+</head>
+<body>
+  <h1>PAA Results for "<%= searchTerm %>"</h1>
+  <ul>
+    <% paaData.forEach((entry, idx) => { %>
+      <li>
+        <strong>Q<%= idx + 1 %>: <%= entry.question %></strong>
+        <ul>
+          <% entry.subQuestions.forEach((subQ, subIdx) => { %>
+            <li>Sub-Q<%= subIdx + 1 %>: <%= subQ %></li>
+          <% }); %>
+        </ul>
+      </li>
+    <% }); %>
+  </ul>
+
+  <!-- Download CSV Form -->
+  <form action="/download-csv" method="POST">
+    <input type="hidden" name="searchTerm" value="<%= searchTerm %>">
+    <input type="hidden" name="country" value="<%= country %>">
+    <input type="hidden" name="paaData" value='<%= JSON.stringify(paaData) %>'>
+    <button type="submit">Download CSV</button>
+  </form>
+</body>
+</html>
